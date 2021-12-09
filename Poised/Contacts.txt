@@ -1,0 +1,20 @@
+Project Number	: 111
+Contact Type	: Contractor
+Name		: Orefile Vincent
+Contact Number	: 0719621432
+Contact Email	: vincentmothapa@gmail.com
+Address		: 126 Main Street
+
+Project Number	: 222
+Contact Type	: Customer
+Name		: Orefile Mothapa
+Contact Number	: 0839133030
+Contact Email	: mthore002@myuct.ac.za
+Address		: 120 4th Street
+
+Project Number	: 333
+Contact type	: Contractor
+Name		: Vincent Mothapa
+Contact Number	: 0819621548
+Contact Email	: hgh@hotmail.com
+Address		: 130 7th Ave

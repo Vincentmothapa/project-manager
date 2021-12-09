@@ -1,0 +1,53 @@
+
+public class Project {
+	
+	// Attributes
+	char projectNumber;
+	String projectName;
+	String buildingType;
+	String projectAddress;
+	int erfNumber;
+	float projectFee;
+	float amountPaid;
+	String projectDeadline;
+	String finalizedStatus;
+	
+	public Project(
+			char projectNumber,
+			String projectName,
+			String buildingType,
+			String projectAddress,
+			int erfNumber,
+			float projectFee,
+			float amountPaid,
+			String projectDeadline,
+			String finalizedStatus){
+		
+		this.projectNumber = projectNumber;
+		this.projectName = projectName;
+		this.buildingType = buildingType;
+		this.projectAddress = projectAddress;
+		this.erfNumber = erfNumber;	
+		this.projectFee = projectFee;
+		this.amountPaid = amountPaid;
+		this.projectDeadline = projectDeadline;
+		this.finalizedStatus = finalizedStatus;
+		
+	}
+	
+	// toString method
+	public String toString() {
+		String output = "Project Number:\t" + projectNumber;
+		output += "Project Name:\t" + projectName;
+		output += "Building Type:\t" + buildingType;
+		output += "Project Address:\t" + projectAddress;
+		output += "ERF Number:\t" + erfNumber;
+		output += "Project Fee:\t" + projectFee;
+		output += "Amount Paid:\t" + amountPaid;
+		output += "Project Deadline:\t" + projectDeadline;
+		output += "Finalized:\t" + finalizedStatus;		
+		return output;
+	}
+	
+	
+}

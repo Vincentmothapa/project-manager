@@ -1,0 +1,19 @@
+Proj Number	: 123
+Proj Name	: X
+Building Type	: House
+Proj Address	: 126 Main Street
+ERF Number	: 8899
+Proj Fee	: R2995.0
+Amount Paid	: R2222
+Proj Deadline	: 17 December 2019
+Finalized	: No
+
+Proj Number	: 456
+Proj Name	: Y
+Building Type	: Apartment
+Proj Address	: 127 Main Street
+ERF Number	: 6677
+Proj Fee	: R3500.0
+Amount Paid	: R2000
+Proj Deadline	: 31 December 2022
+Finalized	: No

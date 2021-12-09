@@ -1,0 +1,283 @@
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.FileNotFoundException;
+
+
+public class Poised {
+	public static void main(String[] args) {
+		
+		// Menu
+		System.out.println("OPTIONS:");
+		System.out.println("a - Add New Project");
+		System.out.println("b - Add Contact Information");
+		System.out.println("c - Get Project Information");
+		System.out.println("d - Get Contact Information");
+		System.out.println("e - See All Projects");
+		System.out.println("f - Finalize Project");
+		System.out.println("g - Edit Project");
+		System.out.println("h - Edit Contact");
+
+		//Get user preference
+		Scanner object = new Scanner(System.in);
+		System.out.print("\nEnter option: ");
+		String userInput = object.nextLine();
+		
+//=========================================================================================================
+		// If user wants to add a new project
+		if (userInput.equals("a")) {
+			System.out.println("\nYou have chosen to add a new project");
+			
+			System.out.print("Project Number: ");
+			String projectNumber = object.nextLine();
+			
+			System.out.print("Project Name: ");
+			String projectName = object.nextLine();
+			
+			System.out.print("Building Type: ");
+			String buildingType = object.nextLine();
+			
+			System.out.print("Project Address: ");
+			String projectAddress = object.nextLine();
+			
+			System.out.print("ERF Number: ");
+			String erfNumber = object.nextLine();
+			
+			System.out.print("Project Deadline: ");
+			String projectDeadline = object.nextLine();
+			
+			System.out.print("Project Finalized (Yes/No): ");
+			String finalizedStatus = object.nextLine();
+			
+			System.out.print("Project Fee: ");
+			float projectFee = object.nextFloat();
+			
+			System.out.print("Amount Paid: ");
+			float amountPaid = object.nextFloat();
+			
+			
+			
+			// Create Project variable 
+			Project xyz = new Project(
+					projectNumber,
+					projectName,
+					buildingType,
+					projectAddress,
+					erfNumber,
+					projectFee,
+					amountPaid,
+					projectDeadline,
+					finalizedStatus);
+			
+			// Display the information to be saved
+			System.out.println("\n" + xyz);
+			
+			// Create a file to save project information
+			// If the file exists, add to it
+			try {
+				File myObj = new File("Projects.txt");
+				if (myObj.createNewFile()) {
+					try {
+						FileWriter myWriter = new FileWriter("Projects.txt");
+					    myWriter.write(xyz + "\n");
+					    myWriter.close();
+					    System.out.println("\nInformation Successfully captured.");
+					  } catch (IOException e) {
+						  System.out.println("An error occurred.");
+					      e.printStackTrace();
+					  }
+				} else {
+					// If the file already exists then append to it
+					try {
+						FileWriter myFile = new FileWriter("Projects.txt", true);
+					    myFile.write("\n" + xyz + "\n");
+					    myFile.close();
+					    System.out.println("\nInformation Successfully saved.");
+					  } catch (IOException e) {
+						  System.out.println("An error occurred.");
+					      e.printStackTrace();
+					  }
+				}
+			} catch (IOException e) {
+				System.out.println("An Error Occured");
+			}
+			
+		}
+		
+//=========================================================================================================
+		// If user wants to add contact information
+		else if (userInput.equals("b")) {
+			System.out.println("\nYou have chosen to add contact information");
+			
+			// Capture the title of the person (Customer, Architect or Contractor) and project
+			// name
+			System.out.print("Enter Contact Type: ");
+			String contactType = object.nextLine();
+			
+			System.out.print("Enter Project Number: ");
+			String projectNumber = object.nextLine();
+			
+			System.out.print("Enter Full Name: ");
+			String name = object.nextLine();
+			
+			System.out.print("Enter Contact Number: ");
+			String contactNumber = object.nextLine();
+			
+			System.out.print("Enter Contact Email: ");
+			String contactEmail = object.nextLine();
+			
+			System.out.print("Enter Address: ");
+			String address = object.nextLine();
+			
+			Person xyz = new Person(
+					contactType,
+					projectNumber,
+					name,
+					contactNumber,
+					contactEmail,
+					address);		
+			
+			System.out.println("\n" + xyz);
+			
+			// Create a file to save contacts information
+			// If the file exists, add to it
+			try {
+				File myObj = new File("Contacts.txt");
+				if (myObj.createNewFile()) {
+					try {
+						FileWriter myWriter = new FileWriter("Contacts.txt");
+					    myWriter.write(xyz + "\n");
+					    myWriter.close();
+					    System.out.println("\nInformation Successfully captured.");
+					  } catch (IOException e) {
+						  System.out.println("An error occurred.");
+					      e.printStackTrace();
+					  }
+				} else {
+					// If the file already exists then append to it
+					try {
+						FileWriter myFile = new FileWriter("Contacts.txt", true);
+					    myFile.write("\n" + xyz + "\n");
+					    myFile.close();
+					    System.out.println("\nInformation Successfully saved.");
+					  } catch (IOException e) {
+						  System.out.println("An error occurred.");
+					      e.printStackTrace();
+					  }
+				}
+			} catch (IOException e) {
+				System.out.println("An Error Occured");
+			}
+		}
+
+//=========================================================================================================
+		// If user wants to get user information
+		else if (userInput.equals("c")) {
+			System.out.println("\nYou have chosen to get project information");
+			System.out.println("This function is not yet available");
+		}
+
+//=========================================================================================================		
+		// If user wants to get contact information
+		else if (userInput.equals("d")) {
+			System.out.println("\nYou have chosen to get contact information");
+			System.out.println("This function is not yet available");
+		}
+
+//=========================================================================================================		
+		// If user wants to see all projects
+		else if (userInput.equals("e")) {
+			System.out.println("\nYou have chosen to see all projects");
+			System.out.println("This function is not yet available");
+		}
+		
+//=========================================================================================================
+		// If user wants to finalize project
+		else if (userInput.equals("f")) {
+			System.out.println("\nYou have chosen to finalize project");
+			System.out.print("Enter project number: ");
+			String projectNumber = object.nextLine();
+			
+			// Read from file
+			try {
+		        File myObj = new File("Projects.txt");
+		        Scanner myReader = new Scanner(myObj);
+		        int a = 1;
+		        int b = 0;
+		        while (myReader.hasNextLine()) {
+		        	String data = myReader.nextLine();
+		        	
+		        	// Edit the project corresponding to the project number entered by user
+		        	// Check every 10th line for the project number
+		        	if (data.length() > 13) {
+
+			        	if (data.substring(14).equals(projectNumber) && a == 1) {
+			        		System.out.println("In second if");
+			        		b = 1;
+			        	}
+			        	
+			        	if (b == 1 && data.substring(12).equals("No")) {
+			        		System.out.println("In third if");
+			        		data = data.substring(1, 12) + "Yes";
+			        		b = 0;
+			        	}
+		        	}
+		        	
+		        	a += 1;
+		        	System.out.println(data);
+		        	
+		        }
+		        // Close Scanner
+		        myReader.close();
+			} catch (FileNotFoundException e) {
+			      System.out.println("An error occurred.");
+			      e.printStackTrace();
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+
+//=========================================================================================================	
+		// If user wants to edit project
+		else if (userInput.equals("g")) {
+			System.out.println("\nYou have chosen to edit project");
+			System.out.println("This function is not yet available");
+		}
+
+//=========================================================================================================
+		// If user wants to edit a contact
+		else if (userInput.equals("h")) {
+			System.out.println("\nYou have chosen to edit contact");
+			System.out.println("This function is not yet available");
+		}
+
+//=========================================================================================================
+		// If the user input is not one of the defined options
+		else {
+			System.out.println("Invalid selection");
+		}
+		
+		
+		
+//=========================================================================================================		
+		object.close();
+	}
+}
+
+/*
+REFERENCES
+
+I got help from w3schools under "Java Create and Write To Files" (https://www.w3schools.com/java/java_files_create.asp)
+and "Java Read Files" (https://www.w3schools.com/java/java_files_read.asp) and DelftStack under 
+"Append Text to a Text File in Java" (https://www.delftstack.com/howto/java/append-to-a-text-file-in-java/)
+with regards to creating a text file and appending to it.
+
+I learnt about substring() from GeeksforGeeks (https://www.geeksforgeeks.org/substring-in-java/)
+*/

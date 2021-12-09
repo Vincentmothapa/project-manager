@@ -1,0 +1,36 @@
+
+public class Person {
+	
+	// Attributes
+	String title;
+	String name;
+	String contactNumber;
+	String contactEmail;
+	String address;
+	
+	// Constructor
+	public Person(
+			String title,
+			String name,
+			String contactNumber,
+			String contactEmail,
+			String address) {
+		
+		this.title = title;
+		this.name = name;
+		this.contactNumber = contactNumber;
+		this.contactEmail = contactEmail;
+		this.address = address;		
+	}
+	
+	// toString method
+	public String toString() {
+		String output = "Title: " + title;
+		output += "Name: " + name;
+		output += "Contact Number: " + contactNumber;
+		output += "Contact Email: " + contactEmail;
+		output += "Address: " + address;		
+		return output;		
+	}
+	
+}
