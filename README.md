@@ -60,3 +60,5 @@ object.
 * Change the total amount of the fee paid to date.
 * Update a contractor’s contact details.
 * Finalise the project.
+
+Information is stored in text files.
